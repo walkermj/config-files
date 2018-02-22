@@ -11,6 +11,9 @@ Plug 'tpope/vim-fugitive'
 " to interact with R
 Plug 'jalvesaq/Nvim-R'
 
+" No-BS Python code folding for Vim
+Plug 'tmhedberg/SimpylFold'
+
 " to view csv files nicely
 Plug 'chrisbra/csv.vim'
 
@@ -52,9 +55,34 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
 
+" Audoindent for python
+Plug 'vim-scripts/indentpython.vim'
+
 "To add pandoc functionality
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+
+" For Python autocomplete
+Plug 'Valloric/YouCompleteMe'
+
+" Have vim check syntax on each save
+Plug 'vim-syntastic/syntastic'
+
+" PEP8 checking
+Plug 'nvie/vim-flake8'
+
+" Cool colour schemes
+Plug 'jnurmine/Zenburn'
+Plug 'altercation/vim-colors-solarized'
+
+" File tree explorer
+Plug 'scrooloose/nerdtree'
+
+" Super searching
+Plug 'kien/ctrlp.vim'
+
+" status/tabline for vim
+Plug 'vim-airline/vim-airline'
 
 " Initialize plugin system
 call plug#end()
@@ -71,11 +99,37 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Set splits upon opening vim
+set splitbelow
+set splitright
+
 " window navigation
-noremap <C-j> <C-w>j
+nremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+let g:SimpylFold_docstring_preview=1
+
+" Flag unnecessary whitespace (as red colour)
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" For PEP8 indentation re python
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
 " so that working directory changes to that for file i've opened
 set autochdir
@@ -97,5 +151,38 @@ autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | ca
 autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
 
+" Set encoding as UTF8
+set encoding = utf-8
 
+" Customisations for Py autocomplete (ensures autocomplete window goes once done with it and shortcut for goto definition)
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" Make code look pretty
+let python_highlight_all=1
+syntax on
+
+" define when each colour scheme is used
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme zenburn
+endif
+
+"Switch between themes with F5
+call togglebg#map("<F5>")
+
+" Ignore .pyc files
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
