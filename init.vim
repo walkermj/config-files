@@ -34,7 +34,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -63,7 +63,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " For Python autocomplete
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
 " Have vim check syntax on each save
 Plug 'vim-syntastic/syntastic'
@@ -104,7 +104,7 @@ set splitbelow
 set splitright
 
 " window navigation
-nremap <C-j> <C-w>j
+noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
@@ -144,7 +144,7 @@ set number
 colorscheme slate
 
 " set font type and size
-set guifont=Menlo\ Regular:h13
+" set guifont=Menlo\ Regular:h13
 
 " start R automatically when opening R or rmd files (if R isn't started already)
 autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
@@ -152,21 +152,11 @@ autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | 
 autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
 
 " Set encoding as UTF8
-set encoding = utf-8
+" set encoding = utf-8
 
 " Customisations for Py autocomplete (ensures autocomplete window goes once done with it and shortcut for goto definition)
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 " Make code look pretty
 let python_highlight_all=1
