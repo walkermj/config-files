@@ -99,6 +99,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"folders
+command Projects cd ~/Documents/Projects
+command Scratch cd ~/scratch
+
+"change how to change what makes <- in R, press underscore twice to get it
+let R_assign = 2
+
 " Set splits upon opening vim
 set splitbelow
 set splitright
@@ -112,6 +119,10 @@ noremap <C-h> <C-w>h
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+
+" Map ; to : to avoid mistaken caps when running vim commands
+nnoremap ; :
+vnoremap ; :
 
 " Enable folding with the spacebar
 nnoremap <space> za
@@ -152,7 +163,7 @@ autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | 
 autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
 
 " Set encoding as UTF8
-" set encoding = utf-8
+set encoding = utf-8
 
 " Customisations for Py autocomplete (ensures autocomplete window goes once done with it and shortcut for goto definition)
 let g:ycm_autoclose_preview_window_after_completion=1
