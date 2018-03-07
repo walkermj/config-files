@@ -84,6 +84,9 @@ Plug 'kien/ctrlp.vim'
 " status/tabline for vim
 Plug 'vim-airline/vim-airline'
 
+" Plugin for making commenting/uncommenting files easier
+Plug 'tpope/vim-commentary'
+
 " Initialize plugin system
 call plug#end()
 filetype plugin indent on    " required
@@ -158,12 +161,12 @@ colorscheme slate
 " set guifont=Menlo\ Regular:h13
 
 " start R automatically when opening R or rmd files (if R isn't started already)
-autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
-autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
-autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
+" autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+" autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+" autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
 
 " Set encoding as UTF8
-set encoding = utf-8
+" set encoding = utf-8
 
 " Customisations for Py autocomplete (ensures autocomplete window goes once done with it and shortcut for goto definition)
 let g:ycm_autoclose_preview_window_after_completion=1
