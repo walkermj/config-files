@@ -1,0 +1,33 @@
+---
+title: "Title Here"
+output:
+  html_document:
+    # toc: yes
+    # toc_float: yes
+Author: Clinical Data Team
+---
+
+```{r setup, include=FALSE}
+
+opts_chunk$set(dev='png', dev.args=list(bg="transparent")) #-- to make transparent plot backgrounds (works for when right click and 'save as'
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+## Header 1
+
+```{r, tblChunkExample,echo=FALSE}
+
+kable(dfTbl, row.names=F) 
+
+```
+
+```{r, plotChunkExample, dev.args = list(bg = 'transparent'),echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, fig.width=9}
+
+#-- cowplot example
+ggdraw()+
+  draw_plot(plot_example,x=0,y=0.14,width=1,height=0.84)+
+  draw_text(stringExample, x=1,y=0.06,vjust=0.5,hjust=1,size=10,fontface="italic",colour=gellgry)
+
+```

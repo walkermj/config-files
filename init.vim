@@ -1,12 +1,11 @@
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
+
+" Multiple Plug commands can be written in a single line using | separators
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
 call plug#begin('~/.config/nvim/plugged')
-
-" Make sure you use single quotes
-
-" to do git from vim
-Plug 'tpope/vim-fugitive'
 
 " to interact with R
 Plug 'jalvesaq/Nvim-R'
@@ -30,12 +29,6 @@ Plug 'jiangmiao/auto-pairs'
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -49,21 +42,12 @@ Plug 'fatih/vim-go', { 'tag': '*' }
 " Plugin options
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-
 " Audoindent for python
 Plug 'vim-scripts/indentpython.vim'
 
 "To add pandoc functionality
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-
-" For Python autocomplete
-" Plug 'Valloric/YouCompleteMe'
 
 " Have vim check syntax on each save
 Plug 'vim-syntastic/syntastic'
@@ -78,14 +62,13 @@ Plug 'altercation/vim-colors-solarized'
 " File tree explorer
 Plug 'scrooloose/nerdtree'
 
-" Super searching
-Plug 'kien/ctrlp.vim'
-
-" status/tabline for vim
-Plug 'vim-airline/vim-airline'
-
 " Plugin for making commenting/uncommenting files easier
 Plug 'tpope/vim-commentary'
+
+" Vim Markdown -  syntax highlighting, matching rules and mappings for markdown
+" and extention
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " Initialize plugin system
 call plug#end()
@@ -104,7 +87,8 @@ filetype plugin indent on    " required
 
 "folders
 command Projects cd ~/Documents/Projects
-command Scratch cd ~/scratch
+command Scratch cd ~/Documents/Scratch
+command Camq cd ~/Documents/Projects/MQ-CA/ca-megaquery
 
 "change how to change what makes <- in R, press underscore twice to get it
 let R_assign = 2
@@ -129,7 +113,6 @@ vnoremap ; :
 
 " Enable folding with the spacebar
 nnoremap <space> za
-
 let g:SimpylFold_docstring_preview=1
 
 " Flag unnecessary whitespace (as red colour)
@@ -154,19 +137,23 @@ let g:airline_theme='simple'
 " enable line numbers
 set number
 
-" use nice slate colorscheme
-colorscheme slate
-
-" set font type and size
-" set guifont=Menlo\ Regular:h13
-
 " start R automatically when opening R or rmd files (if R isn't started already)
 " autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 " autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 " autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
 
-" Set encoding as UTF8
-" set encoding = utf-8
+" Set colourscheme for vim
+" syntax enable
+" set background=dark
+" colorscheme solarized
+
+" Set different background colour depending on wether terminal or GUI mode
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme zenburn
+endif
 
 " Customisations for Py autocomplete (ensures autocomplete window goes once done with it and shortcut for goto definition)
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -176,17 +163,14 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let python_highlight_all=1
 syntax on
 
-" define when each colour scheme is used
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme zenburn
-endif
-
-"Switch between themes with F5
-call togglebg#map("<F5>")
-
 " Ignore .pyc files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" Set up to detect document templates by file extension
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.R 0r ~/.config/nvim/templates/skeleton.R
+    autocmd BufNewFile *.Rmd 0r ~/.config/nvim/templates/skeleton.Rmd
+  augroup END
+endif
 
