@@ -143,17 +143,18 @@ set number
 " autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
 
 " Set colourscheme for vim
-" syntax enable
-" set background=dark
-" colorscheme solarized
+syntax enable
+set background=dark
+colorscheme zenburn
+
 
 " Set different background colour depending on wether terminal or GUI mode
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme zenburn
-endif
+" if has('gui_running')
+"   set background=dark
+"   colorscheme solarized
+" else
+"   colorscheme zenburn
+" endif
 
 " Customisations for Py autocomplete (ensures autocomplete window goes once done with it and shortcut for goto definition)
 let g:ycm_autoclose_preview_window_after_completion=1
