@@ -7,6 +7,9 @@
 
 call plug#begin('~/.config/nvim/plugged')
 
+" Git wrapper for vim
+Plug 'tpope/vim-fugitive'
+
 " to interact with R
 Plug 'jalvesaq/Nvim-R'
 
@@ -93,6 +96,9 @@ command Camq cd ~/Documents/Projects/MQ-CA/ca-megaquery
 "change how to change what makes <- in R, press underscore twice to get it
 let R_assign = 2
 
+" allow r console to open in separate window
+let R_in_buffer = 0
+
 " Set splits upon opening vim
 set splitbelow
 set splitright
@@ -146,7 +152,6 @@ set number
 syntax enable
 set background=dark
 colorscheme zenburn
-
 
 " Set different background colour depending on wether terminal or GUI mode
 " if has('gui_running')
