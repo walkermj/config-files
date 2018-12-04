@@ -73,6 +73,10 @@ Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+
+" Vim-Latex - rich set of features for editing latex files
+Plug 'vim-latex/vim-latex'
+
 " Initialize plugin system
 call plug#end()
 filetype plugin indent on    " required
@@ -179,4 +183,16 @@ if has("autocmd")
     autocmd BufNewFile *.Rmd 0r ~/.config/nvim/templates/skeleton.Rmd
   augroup END
 endif
+
+"horizontal line showing current position in file
+set cursorline
+
+";wchange the data viewer to be rdtv function in wrangleR
+let R_df_viewer = "wrangleR::rdtv(%s)"
+
+"include some other functions
+"to show head of the df under cursor
+nmap <silent> <LocalLeader>h :call RAction("head")<CR>
+"to view with dtv whole of df under cursor
+nmap <silent> <LocalLeader>dv :call RAction("wrangleR::dtv")<CR>
 
