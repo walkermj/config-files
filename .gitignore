@@ -1,2 +1,5 @@
 # exclude all plugin files in plugged folder
 plugged/*
+
+# allow the following files
+!plugged/info.md
