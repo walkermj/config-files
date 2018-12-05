@@ -79,10 +79,9 @@ Plug 'vim-latex/vim-latex'
 
 " Initialize plugin system
 call plug#end()
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
+filetype plugin indent on    
+
+
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -196,3 +195,6 @@ nmap <silent> <LocalLeader>h :call RAction("head")<CR>
 "to view with dtv whole of df under cursor
 nmap <silent> <LocalLeader>dv :call RAction("wrangleR::dtv")<CR>
 
+" Get latex files to compile using 
+let g:tex_flavor='latex'
+let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode --shell-escape $*'
