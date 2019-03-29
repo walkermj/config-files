@@ -1,0 +1,7 @@
+ln -s ~/config-files/cdt-query/bash_profile ~/.bash_profile
+ln -s ~/config-files/Renviron ~/.Renviron
+ln -s ~/config-files/cdt-query/vimrc ~/.vimrc
+ln -s ~/config-files/skeleton.r ~/.vim/templates/skeleton.r
+ln -s ~/config-files/skeleton.rmd ~/.vim/templates/skeleton.rmd
+ln -s ~/config-files/Rprofile ~/.Rprofile
+ln -s ~/config-files/cdt-query/tmuxconf ~/.tmux.conf
