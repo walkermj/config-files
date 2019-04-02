@@ -97,11 +97,11 @@ command Scratch cd ~/Documents/Scratch
 command Camq cd ~/Documents/Projects/MQ-CA/ca-megaquery
 
 "change how to change what makes <- in R, press underscore twice to get it
-let R_assign = 2
+let R_assign = 0
+" let R_in_buffer = 0
+" let R_tmux_split = 1
 
 " allow r console to open in separate window
-let R_in_buffer = 0
-
 " Set splits upon opening vim
 set splitbelow
 set splitright
