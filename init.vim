@@ -1,4 +1,11 @@
-" Specify a directory for plugins
+" Speciftaff   1290 22 Mar 15:48 README.md
+" drwxr-xr-x   3 michaelwalker  staff     96 13 Mar 15:35 __pycache__
+" -rw-r--r--   1 michaelwalker  staff    243 21 Feb 13:06 config.py
+"  -rw-r--r--   1 michaelwalker  staff    139 21 Feb 13:32 crud.py
+"  drwxr-xr-x   5 michaelwalker  staff    160 12 Mar 13:29 deploy_db
+"  drwxr-xr-x  12 michaelwalker  staff    384 22 Feb 09:26 docs
+"  drwxr-xr-x   7 michaelwalker  staff    224 13 Mar 15:36 env
+"  a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 
@@ -15,6 +22,9 @@ Plug 'jalvesaq/Nvim-R'
 
 " No-BS Python code folding for Vim
 Plug 'tmhedberg/SimpylFold'
+
+" for moving between tmux and vim a bit more seamlessly
+Plug 'christoomey/vim-tmux-navigator'
 
 " to view csv files nicely
 Plug 'chrisbra/csv.vim'
@@ -72,7 +82,6 @@ Plug 'tpope/vim-commentary'
 " and extention
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
 
 " Vim-Latex - rich set of features for editing latex files
 Plug 'vim-latex/vim-latex'
