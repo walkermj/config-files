@@ -17,6 +17,9 @@ call plug#begin('~/.config/nvim/plugged')
 " Git wrapper for vim
 Plug 'tpope/vim-fugitive'
 
+" Rename file currently editing and keep on editing
+Plug 'vim-scripts/rename2'
+
 " to interact with R
 Plug 'jalvesaq/Nvim-R'
 
