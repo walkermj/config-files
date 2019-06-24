@@ -210,3 +210,6 @@ nmap <silent> <LocalLeader>dv :call RAction("wrangleR::dtv")<CR>
 " Get latex files to compile using 
 let g:tex_flavor='latex'
 let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode --shell-escape $*'
+
+" copy and paste from vim to clipboard
+set clipboard=unnamed
