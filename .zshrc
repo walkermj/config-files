@@ -10,8 +10,7 @@ export TERM="xterm-256color"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME=powerlevel10k/powerlevel10k
-# ZSH_THEME=powerlevel9k/powerlevel9k
-# POWERLEVEL9K_MODE="awesome-patched"
+POWERLEVEL9K_MODE='nerdfont-complete'
 # ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
@@ -19,7 +18,6 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
 
 # to remove user@hostname in the prompt 
 # DEFAULT_USER=$(whoami)

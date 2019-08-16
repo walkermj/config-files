@@ -1,11 +1,3 @@
-" Speciftaff   1290 22 Mar 15:48 README.md
-" drwxr-xr-x   3 michaelwalker  staff     96 13 Mar 15:35 __pycache__
-" -rw-r--r--   1 michaelwalker  staff    243 21 Feb 13:06 config.py
-"  -rw-r--r--   1 michaelwalker  staff    139 21 Feb 13:32 crud.py
-"  drwxr-xr-x   5 michaelwalker  staff    160 12 Mar 13:29 deploy_db
-"  drwxr-xr-x  12 michaelwalker  staff    384 22 Feb 09:26 docs
-"  drwxr-xr-x   7 michaelwalker  staff    224 13 Mar 15:36 env
-"  a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 
@@ -107,6 +99,7 @@ filetype plugin indent on
 command Projects cd ~/Documents/Projects
 command Scratch cd ~/Documents/Scratch
 command Camq cd ~/Documents/Projects/MQ-CA/ca-megaquery
+command Pmi cd ~/Documents/Projects/cdt-patient-master-index
 
 "change how to change what makes <- in R, press underscore twice to get it
 let R_assign = 0
@@ -167,14 +160,8 @@ set number
 syntax enable
 set background=dark
 colorscheme zenburn
-
-" Set different background colour depending on wether terminal or GUI mode
-" if has('gui_running')
-"   set background=dark
-"   colorscheme solarized
-" else
-"   colorscheme zenburn
-" endif
+" let g:solarized_termcolors=256
+" colorscheme solarized
 
 " Customisations for Py autocomplete (ensures autocomplete window goes once done with it and shortcut for goto definition)
 let g:ycm_autoclose_preview_window_after_completion=1

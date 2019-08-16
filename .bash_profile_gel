@@ -15,6 +15,9 @@ alias scratch="cd ~/Documents/Scratch/"
 #-- alias to go straight to CAMQ folder
 alias camq="cd ~/Documents/Projects/MQ-CA/ca-megaquery/"
 
+#-- alias to go straight to CAMQ folder
+alias pmi="cd ~/Documents/Projects/cdt-patient-master-index"
+
 #-------------------------
 #-- EXECUTABLE ALIASES
 #-------------------------
@@ -29,6 +32,8 @@ alias spoon="sh /usr/local/Caskroom/data-integration/8.1.0.0-365/data-integratio
 #alias to run Simons two sets executable
 alias 2sets="~/twosets_v1"
 
+#alias to automatically run tmux in 256 colour mode
+alias tmux="tmux -2"
 #-------------------------
 #-- SSH ALIASES
 #-------------------------
