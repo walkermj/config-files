@@ -81,6 +81,9 @@ Plug 'plasticboy/vim-markdown'
 " Vim-Latex - rich set of features for editing latex files
 Plug 'vim-latex/vim-latex'
 
+" Vim-Eunuch 
+Plug 'tpope/vim-eunuch'
+
 " Initialize plugin system
 call plug#end()
 filetype plugin indent on    
