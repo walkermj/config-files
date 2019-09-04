@@ -84,6 +84,9 @@ Plug 'vim-latex/vim-latex'
 " Vim-Eunuch 
 Plug 'tpope/vim-eunuch'
 
+" Goyo.vim distraction free writing in vim
+Plug 'junegunn/goyo.vim'
+
 " Initialize plugin system
 call plug#end()
 filetype plugin indent on    
