@@ -80,7 +80,7 @@ filetype plugin indent on
 """"""""""""""""""""""""""" VIM BEHAVIOR """"""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let maplocalleader="," " change the localleader from \ to ,
+" let maplocalleader="," " change the localleader from \ to ,
 set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent    " always set autoindenting on
@@ -138,6 +138,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
