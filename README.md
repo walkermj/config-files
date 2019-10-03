@@ -1,9 +1,12 @@
-## nvim-mac
+## config files
 
-Configuration for nvim 
+These files contain my personal configuration for using neovim, tmux, zsh and other useful day to day tools.
 
+The best way to use this is to clone the repository to your root folder and then create symbolic links for the relevant files to the relevant folders. (or use from dropbox).
 
-### Instructions for setup in unix environment
+### Instructions for nvim setup 
+
+(_These instructions are old but still relevant for the most part - will update_)
 
 1. Run the following command to install vim.plug in the autoload directory: `curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ 
 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vi`
@@ -12,7 +15,8 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vi`
 4. run `nvim` to open up neovim and then run `:PlugInstall` to install all of the plugins referenced in the init.vim file.
 5. Close vim and then re open and it should be as specified in init.vim file
 
-## Other info
+## Notes
 
   * `tmuxconf` should be renamed `.tmux.conf` and placed in root folder
   * `init.vim` and plugins should be placed in `~/.config/nvim`
+  * be sure to run `~/.gel_config` so that only you can view the file contents
