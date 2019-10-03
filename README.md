@@ -19,4 +19,4 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vi`
 
   * `tmuxconf` should be renamed `.tmux.conf` and placed in root folder
   * `init.vim` and plugins should be placed in `~/.config/nvim`
-  * be sure to run `~/.gel_config` so that only you can view the file contents
+  * be sure to run `chmod 600 ~/.gel_config` so that only you can view the file contents
