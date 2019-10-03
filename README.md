@@ -2,7 +2,7 @@
 
 These files contain my personal configuration for using neovim, tmux, zsh and other useful day to day tools.
 
-The best way to use this is to clone the repository to your root folder and then create symbolic links for the relevant files to the relevant folders. (or use from dropbox).
+The best way to use this is to clone the repository to your root folder and then create symbolic links for the relevant files to the relevant folders that they need to be run from. Another option is to use from dropbox instead of home folder and create symbolic links from there.
 
 ### Instructions for nvim setup 
 
