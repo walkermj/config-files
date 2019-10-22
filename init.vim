@@ -86,6 +86,7 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 set foldlevel=99
+set conceallevel=2 "override plugin that is mysteriously changing this setting (see https://vi.stackexchange.com/a/7263)"
 set foldmethod=indent " Enable folding
 set number        " always show line numbers
 set shiftwidth=4  " number of spaces to use for autoindenting

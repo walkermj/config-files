@@ -1,0 +1,57 @@
+{
+"name": "Michael Walker",
+"profile": "on_query",
+"uk_shape_file_path": "<path to uk shape files>",
+"home_drive_path": "/Users/mwalker",
+"slack_username": "!gel_email!",
+".defaults": {
+    "gel_ldap_username": "mwalker",
+    "gel_ldap_password": "<password_here>",
+    "cdt_postgres_db_password": "<password_here>",
+    "postgres_db_password": "<password_here>",
+    "gel_email": "michael.walker@genomicsengland.co.uk"
+},
+"mis_con": {
+    "_desc": "Connection details for CDT copies of MIS database",
+    "host": "10.1.24.37",
+    "port": 5432,
+    "user": "!gel_ldap_username!",
+    "password": "!postgres_db_password!"
+},
+"dams_con": {
+    "_desc": "Connection details for CDT copies of DAMS databases",
+    "host": "10.1.24.33",
+    "port": 5432,
+    "user": "!gel_ldap_username!",
+    "password": "!postgres_db_password!"
+},
+"indx_con": {
+    "_desc": "Connection details for Index database within CDT environment",
+    "host": "10.1.24.39",
+    "port": 5433,
+    "user": "cdt_user",
+    "password": "!cdt_postgres_db_password!"
+},
+"ngis_slave_db": {
+    "_desc": "Connection details for the NGIS slave databases",
+    "host": "10.5.66.12",
+    "port": 5432,
+    "user": "<user_name_here>",
+    "password": "<password_here>"
+},
+"ldap": {
+    "_desc": "Username and password details for GEL LDAP",
+    "user": "!gel_ldap_username!",
+    "password": "!gel_ldap_password!"
+},
+"nhs": {
+    "_desc": "Email and password for NHS.net and Azure AD connection",
+    "user": "michael.walker14@nhs.net",
+    "password": "<password_here>"
+},
+"s3_consent_keys": {
+    "_desc": "Keys for connecting to NGIS consent S3 buckets",
+    "access_key": "<access_key_here>",
+    "secret_key": "<secret_key_here>"
+}
+}

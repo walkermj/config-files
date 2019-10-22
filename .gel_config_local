@@ -1,0 +1,71 @@
+{
+"name": "<name>",
+"profile": "local",
+"uk_shape_file_path": "<path to uk shape files>",
+"home_drive_path": "<path to home drive i.e. /Users/...>",
+"slack_username": "!gel_email!",
+".defaults": {
+    "gel_ldap_username": "<ldap username (what you use for Confluence, JIRA etc.)>",
+    "gel_ldap_password": "<ldap password (what you use for Confluence, JIRA etc.)>",
+    "postgres_db_password": "password",
+    "gel_email": "<full GEL email address>"
+},
+"local_postgres_con": {
+    "_desc": "Connection details for any local postgres installation",
+    "host": "localhost",
+    "port": 5432,
+    "user": "<local_username>",
+    "password": "<local_db_password>"
+},
+"mis_con": {
+    "_desc": "Connection details for CDT copies of MIS database",
+    "host": "localhost",
+    "port": 5440,
+    "user": "!gel_ldap_username!",
+    "password": "!postgres_db_password!"
+},
+"dams_con": {
+    "_desc": "Connection details for CDT copies of DAMS databases",
+    "host": "localhost",
+    "port": 5438,
+    "user": "!gel_ldap_username!",
+    "password": "!postgres_db_password!"
+},
+"indx_con": {
+    "_desc": "Connection details for Index database within CDT environment",
+    "host": "localhost",
+    "port": 5441,
+    "user": "cdt_user",
+    "password": "!cdt_postgres_db_password!"
+},
+"cdr_auto": {
+    "_desc": "Connection details for central_data_repo database in DDF auto environment",
+    "host": "10.1.28.78",
+    "port": 5432,
+    "user": "!gel_ldap_username!",
+    "password": "<password for cdr_auto db enviroment>"
+},
+"ngis_slave_db": {
+    "_desc": "Connection details for the NGIS slave databases",
+    "host": "10.5.66.12",
+    "port": 5432,
+    "user": "<username>",
+    "password": "<password>"
+},
+"ldap": {
+    "_desc": "Username and password details for GEL LDAP",
+    "user": "!gel_ldap_username!",
+    "password": "!gel_ldap_password!"
+},
+"nhs": {
+    "_desc": "Email and password for NHS.net and Azure AD connection",
+    "user": "<nhs_email_address>",
+    "password": "<nhs_email_password>"
+},
+"s3_consent_keys": {
+    "_desc": "Keys for connecting to  S3 buckets",
+    "access_key": "<access_key_here>",
+    "secret_key": "<secret_key_here>"
+}
+}
+
