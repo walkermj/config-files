@@ -140,7 +140,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-
+"Goyo configuration
+let g:goyo_width = 130
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
