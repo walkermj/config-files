@@ -62,6 +62,14 @@ Plug 'vim-latex/vim-latex'
 Plug 'tpope/vim-eunuch'
 " Goyo.vim distraction free writing in vim
 Plug 'junegunn/goyo.vim'
+" Functionality to search throughout project 
+Plug 'jremmen/vim-ripgrep'
+" taglist source code browser for vim
+Plug 'majutsushi/tagbar'
+" shortcut to create/update ctags
+Plug 'xolox/vim-easytags'
+" needed for easytags
+Plug 'xolox/vim-misc'
 
 " Initialize plugin system
 call plug#end()
@@ -143,6 +151,9 @@ let g:UltiSnipsEditSplit="vertical"
 "Goyo configuration
 let g:goyo_width = 130
 
+"general remapping
+nmap :tt :TagbarToggle<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """ VIM FUNCTIONS
@@ -176,8 +187,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 "folder aliases
 command Projects cd ~/Documents/Projects
 command Scratch cd ~/Documents/Scratch
-command Camq cd ~/Documents/Projects/MQ-CA/ca-megaquery
-command Pmi cd ~/Documents/Projects/cdt-patient-master-index
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
