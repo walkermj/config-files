@@ -49,7 +49,7 @@ Plug 'nvie/vim-flake8'
 Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
 " File tree explorer
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 " Plugin for making commenting/uncommenting files easier
 Plug 'tpope/vim-commentary'
 " Vim Markdown -  syntax highlighting, matching rules and mappings for markdown
@@ -67,9 +67,11 @@ Plug 'jremmen/vim-ripgrep'
 " taglist source code browser for vim
 Plug 'majutsushi/tagbar'
 " shortcut to create/update ctags
-Plug 'xolox/vim-easytags'
-" needed for easytags
-Plug 'xolox/vim-misc'
+Plug 'ludovicchabant/vim-gutentags'
+" allow ranger to open files in neovim
+Plug 'ipod825/vim-netranger'
+" Syntax highlighting for Apache Avro IDL files
+Plug 'gurpreetatwal/vim-avro'
 
 " Initialize plugin system
 call plug#end()
@@ -152,7 +154,9 @@ let g:UltiSnipsEditSplit="vertical"
 let g:goyo_width = 130
 
 "general remapping
-nmap :tt :TagbarToggle<CR>
+:command Tt TagbarToggle
+:command Nn tabnew
+:command Nc tabclose
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
