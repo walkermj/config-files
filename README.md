@@ -20,3 +20,4 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vi`
   * `tmuxconf` should be renamed `.tmux.conf` and placed in root folder
   * `init.vim` and plugins should be placed in `~/.config/nvim`
   * be sure to run `chmod 600 ~/.gel_config` so that only you can view the file contents
+  * To use Nord theme in iterm, you need to install the NordiTerm colour palette accessible at the following link: [https://www.nordtheme.com/ports](https://www.nordtheme.com/ports)

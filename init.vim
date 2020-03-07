@@ -1,15 +1,13 @@
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
+set nocompatible
+filetype off 
 
 " Multiple Plug commands can be written in a single line using | separators
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 call plug#begin('~/.config/nvim/plugged')
-" for snippets
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " Git wrapper for vim
 Plug 'tpope/vim-fugitive'
-" Rename file currently editing and keep on editing
-Plug 'vim-scripts/rename2'
 " to interact with R
 Plug 'jalvesaq/Nvim-R'
 " No-BS Python code folding for Vim
@@ -25,17 +23,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " for autoclosing of brackets etc.
 Plug 'jiangmiao/auto-pairs'
+" for changing surrounding quotes, parenthesis etc.
+Plug 'tpope/vim-surround'
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-" Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 " Audoindent for python
 Plug 'vim-scripts/indentpython.vim'
 "To add pandoc functionality
@@ -43,18 +34,16 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 " Have vim check syntax on each save
 Plug 'vim-syntastic/syntastic'
-" PEP8 checking
-Plug 'nvie/vim-flake8'
 " Cool colour schemes
 Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
 " File tree explorer
-" Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " Plugin for making commenting/uncommenting files easier
 Plug 'tpope/vim-commentary'
 " Vim Markdown -  syntax highlighting, matching rules and mappings for markdown
 " and extension
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 " Vim-Latex - rich set of features for editing latex files
 Plug 'vim-latex/vim-latex'
@@ -70,8 +59,24 @@ Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 " allow ranger to open files in neovim
 Plug 'ipod825/vim-netranger'
-" Syntax highlighting for Apache Avro IDL files
-Plug 'gurpreetatwal/vim-avro'
+"send lines to a terminal
+Plug 'jalvesaq/vimcmdline'
+" get log file highlighting
+Plug 'mtdl9/vim-log-highlighting'
+" get git changes in gutter
+Plug 'airblade/vim-gitgutter'
+" show indent guides
+Plug 'nathanaelkane/vim-indent-guides'
+" enable ripgrep searching from grep
+Plug 'jremmen/vim-ripgrep'
+" show linting
+Plug 'dense-analysis/ale'
+" load language server
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" For working with yml files
+Plug 'mrk21/yaml-vim'
+" To give a handy, slimline position file position indictator in statusline
+Plug 'drzel/vim-line-no-indicator'
 
 " Initialize plugin system
 call plug#end()
@@ -131,46 +136,109 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 " set airline theme
-let g:airline_theme='simple'
-" Set colourscheme for vim
+"let g:airline_theme='zenburn'
+"let g:airline_theme='solarized'
+" let g:airline_theme='nord'
 syntax enable
-set background=dark
-colorscheme zenburn
-" Ignore .pyc files
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-nnoremap <Leader>b :ls<CR>:b<Space> 
-" allows <Leader>b to accept the number of a buffer afterwards to select that buffer
-nnoremap <Leader>nt :NERDTree<CR>
-" remaps leader nt to opening up NERD tree
-" UltiSnips Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger = "<C-l>"
-let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-"Goyo configuration
-let g:goyo_width = 130
+" set background=dark
+colorscheme nord
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+let g:csv_nomap_cr = 1   " prevent csv plugin from remapping control keys
 
 "general remapping
 :command Tt TagbarToggle
 :command Nn tabnew
 :command Nc tabclose
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""
+" NERDTree Setup
+""""""""""""""""
+" Ignore .pyc files
+" let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+" remaps leader nt to opening up NERD tree
+nnoremap <Leader>nt :NERDTree<CR>
+"Show hidden files in NERDTree
+let NERDTreeShowHidden=1
 
-""" VIM FUNCTIONS
-" function to see difference compared to last saved version
-" call it with :DiffSaved and turn it off with :diffoff
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+
+""""""""""""""""""
+" COC VIM Config
+""""""""""""""""""
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
-com! DiffSaved call s:DiffWithSaved()
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+"
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" ALE Linter configuration
+" set up linters
+let g:ale_fixers = {
+  "\ 'python': ['yapf', 'pylint'] ,
+  \ 'python': ['pylint'] ,
+  \ }
+
+
+""""""""""""""""""""""""
+" Fugitive configuration
+""""""""""""""""""""""""
+" git remaps
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>ga :Gwrite<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gp :Gpush<CR>
+
+
+""""""""""""""""""""""""""
+" Vimcmdline configuration
+""""""""""""""""""""""""""
+
+" for vimcmdline, have the terminal try and run in venv
+let cmdline_app           = {}
+let cmdline_app['python']   = 'if [ -d "venv" ]; then source venv/bin/activate && ipython --no-autoindent; else ipython --no-autoindent; fi'
+let cmdline_follow_colorscheme = 1 "follow current colorscheme
+
+
+""""""""""""""""""""
+" Goyo Configuration
+""""""""""""""""""""
+" Define default goyo page width
+let g:goyo_width = 130
 
 " customise Goyo so that move down line by line
 function! s:goyo_enter()
@@ -185,6 +253,22 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+"""""""""""""""""""""""
+"" VIM FUNCTIONS
+"""""""""""""""""""""""
+
+" function to see difference compared to last saved version
+" call it with :DiffSaved and turn it off with :diffoff
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
