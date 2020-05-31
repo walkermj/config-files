@@ -24,7 +24,7 @@ alias pmi="cd ~/Documents/Projects/cdt-patient-master-index"
 # pgfutter ='~/pgfutter'
 
 # Alias python command so that python 3 is used instead of 2.7
-# alias python=python3
+alias python=python3
 
 # Alias to run Pentaho Kettle from commandline
 alias spoon="sh /usr/local/Caskroom/data-integration/8.1.0.0-365/data-integration/spoon.sh"

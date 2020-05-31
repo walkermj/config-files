@@ -5,6 +5,9 @@
 export ZSH="/Users/michaelwalker/.oh-my-zsh"
 export TERM="xterm-256color"
 
+#to set correct python installation
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -78,6 +81,17 @@ plugins=(git vi-mode jira)
 
 source $ZSH/oh-my-zsh.sh
 
+#to enable and configure awsp (AWS Switch profile)
+source ~/awsp_functions.sh
+
+alias awsall="_awsListProfile"
+alias awsp="_awsSetProfile"
+alias awswho="aws configure list"
+
+complete -W "$(cat $HOME/.aws/credentials | grep -Eo '\[.*\]' | tr -d '[]')" _awsSwitchProfile
+complete -W "$(cat $HOME/.aws/config | grep -Eo '\[.*\]' | tr -d '[]' | cut -d " " -f 2)" _awsSetProfile
+
+#
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -114,16 +128,13 @@ alias proj="cd ~/Documents/Projects/"
 #-- alias to go straight to scratch folder
 alias scratch="cd ~/Documents/Scratch/"
 
-#-- alias to go straight to CAMQ folder
-alias camq="cd ~/Documents/Projects/MQ-CA/ca-megaquery/"
-
 #-------------------------
 #-- EXECUTABLE ALIASES
 #-------------------------
 # pgfutter ='~/pgfutter'
 
 # Alias python command so that python 3 is used instead of 2.7
-# alias python=python3
+alias python=python3
 
 # Alias to run Pentaho Kettle from commandline
 alias spoon="sh /usr/local/Caskroom/data-integration/8.1.0.0-365/data-integration/spoon.sh"

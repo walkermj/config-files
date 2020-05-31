@@ -77,6 +77,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mrk21/yaml-vim'
 " To give a handy, slimline position file position indictator in statusline
 Plug 'drzel/vim-line-no-indicator'
+" Add terraform functionality
+Plug 'hashivim/vim-terraform'
 
 " Initialize plugin system
 call plug#end()
@@ -325,6 +327,7 @@ if has("autocmd")
   augroup templates
     autocmd BufNewFile *.R 0r ~/.config/nvim/templates/skeleton.R
     autocmd BufNewFile *.Rmd 0r ~/.config/nvim/templates/skeleton.Rmd
+    autocmd BufNewFile *.py 0r ~/.config/nvim/templates/skeleton.py 
   augroup END
 endif
 
