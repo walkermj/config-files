@@ -92,3 +92,5 @@ function colorssh() {
 
 alias ssh="colorssh"
 export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"

@@ -77,7 +77,7 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode jira)
+plugins=(git vi-mode jira poetry)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -188,3 +188,7 @@ alias ngis_slaves="ssh -L 5444:10.5.66.11:5432 mwalker@10.1.24.38"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+
+# add poetry as $PATH variable
+export PATH="$HOME/.poetry/bin:$PATH"
