@@ -34,6 +34,8 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 " Have vim check syntax on each save
 Plug 'vim-syntastic/syntastic'
+" Functionality to add Black py reformatting 
+Plug 'psf/black'
 " Cool colour schemes
 Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
@@ -67,8 +69,6 @@ Plug 'mtdl9/vim-log-highlighting'
 Plug 'airblade/vim-gitgutter'
 " show indent guides
 Plug 'nathanaelkane/vim-indent-guides'
-" enable ripgrep searching from grep
-Plug 'jremmen/vim-ripgrep'
 " show linting
 Plug 'dense-analysis/ale'
 " load language server
@@ -79,6 +79,9 @@ Plug 'mrk21/yaml-vim'
 Plug 'drzel/vim-line-no-indicator'
 " Add terraform functionality
 Plug 'hashivim/vim-terraform'
+" Add json niceties
+Plug 'elzr/vim-json'
+
 
 " Initialize plugin system
 call plug#end()
@@ -340,4 +343,7 @@ nmap <silent> <LocalLeader>dv :call RAction("wrangleR::dtv")<CR>
 " Get latex files to compile using 
 let g:tex_flavor='latex'
 let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode --shell-escape $*'
+
+" Run Black on save.
+autocmd BufWritePre *.py execute ':Black'
 

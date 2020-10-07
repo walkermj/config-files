@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/michaelwalker/.oh-my-zsh"
+ZSH_DISABLE_COMPFIX="true"
+export ZSH="/Users/michael.walker/.oh-my-zsh"
 export TERM="xterm-256color"
 
 #to set correct python installation
@@ -77,19 +78,19 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode jira poetry)
+plugins=(git vi-mode jira gcloud)
 
 source $ZSH/oh-my-zsh.sh
 
 #to enable and configure awsp (AWS Switch profile)
-source ~/awsp_functions.sh
+#source ~/awsp_functions.sh
 
-alias awsall="_awsListProfile"
-alias awsp="_awsSetProfile"
-alias awswho="aws configure list"
+# alias awsall="_awsListProfile"
+# alias awsp="_awsSetProfile"
+# alias awswho="aws configure list"
 
-complete -W "$(cat $HOME/.aws/credentials | grep -Eo '\[.*\]' | tr -d '[]')" _awsSwitchProfile
-complete -W "$(cat $HOME/.aws/config | grep -Eo '\[.*\]' | tr -d '[]' | cut -d " " -f 2)" _awsSetProfile
+# complete -W "$(cat $HOME/.aws/credentials | grep -Eo '\[.*\]' | tr -d '[]')" _awsSwitchProfile
+# complete -W "$(cat $HOME/.aws/config | grep -Eo '\[.*\]' | tr -d '[]' | cut -d " " -f 2)" _awsSetProfile
 
 #
 # User configuration
@@ -146,8 +147,6 @@ alias 2sets="~/twosets_v1"
 #-- SSH ALIASES
 #-------------------------
 
-# Alias to connect directly to ddfref
-# alias ddfref="bash ~/ssh_connections/ddfRefConnect/ddfRef_ssh.sh"
 
 #--alias to connect to jumpbox
 alias jbx="ssh -L 2224:cln-reference-ddf-etl-01.gel.zone:22 mwalker@10.3.0.50"
@@ -192,3 +191,7 @@ alias ngis_slaves="ssh -L 5444:10.5.66.11:5432 mwalker@10.1.24.38"
 
 # add poetry as $PATH variable
 export PATH="$HOME/.poetry/bin:$PATH"
+# add glcoud utils to $PATH variable
+export PATH="$HOME/google-cloud-sdk:$PATH"
+# addwhirl to $PATH variable
+export PATH="$HOME/Documents/projects/whirl_mollie:$PATH"
