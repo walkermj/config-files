@@ -15,6 +15,7 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME=powerlevel10k/powerlevel10k
 POWERLEVEL9K_MODE='nerdfont-complete'
+# ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -135,6 +136,9 @@ alias scratch="cd ~/Documents/Scratch/"
 
 # Alias python command so that python 3 is used instead of 2.7
 alias python=python3
+
+# Alias to run Pentaho Kettle from commandline
+alias spoon="sh /usr/local/Caskroom/data-integration/8.1.0.0-365/data-integration/spoon.sh"
 
 #alias to run Simons two sets executable
 alias 2sets="~/twosets_v1"
