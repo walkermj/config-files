@@ -154,7 +154,7 @@ alias gap="gcloud auth application-default login"
 
 
 # add poetry as $PATH variable
-export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="/Users/michael.walker/.local/bin:$PATH"
 # add glcoud utils to $PATH variable
 export PATH="$HOME/google-cloud-sdk:$PATH"
 # addwhirl to $PATH variable
@@ -174,3 +174,4 @@ fi
 # dbt env vars
 export SOURCE_PROJECT='mol-data-prod'
 export DEST_PROJECT='mol-data-prod'
+export PERSONAL_DATASET=personal_michael_walker_default
