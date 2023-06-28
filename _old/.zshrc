@@ -15,6 +15,7 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME=powerlevel10k/powerlevel10k
 POWERLEVEL9K_MODE='nerdfont-complete'
+# ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -136,6 +137,9 @@ alias scratch="cd ~/Documents/Scratch/"
 # Alias python command so that python 3 is used instead of 2.7
 alias python=python3
 
+# Alias to run Pentaho Kettle from commandline
+alias spoon="sh /usr/local/Caskroom/data-integration/8.1.0.0-365/data-integration/spoon.sh"
+
 #alias to run Simons two sets executable
 alias 2sets="~/twosets_v1"
 
@@ -154,7 +158,7 @@ alias gap="gcloud auth application-default login"
 
 
 # add poetry as $PATH variable
-export PATH="/Users/michael.walker/.local/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$PATH"
 # add glcoud utils to $PATH variable
 export PATH="$HOME/google-cloud-sdk:$PATH"
 # addwhirl to $PATH variable
@@ -174,4 +178,3 @@ fi
 # dbt env vars
 export SOURCE_PROJECT='mol-data-prod'
 export DEST_PROJECT='mol-data-prod'
-export PERSONAL_DATASET=personal_michael_walker_default
