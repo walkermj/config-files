@@ -171,15 +171,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# dbt env vars
-export SOURCE_PROJECT='mol-data-prod'
-export DEST_PROJECT='mol-data-prod'
-export EXECUTION_PROJECT='mol-data-analytics-dev'
-export DATASET_PROJECT='mol-data-analytics-prod-demo'
-export PERSONAL_DATASET="personal_michael_walker"
-
-export PERSONAL_EXECUTION_PROJECT='mol-data-analytics-dev'
-export DATASET_PROJECT='mol-data-analytics-prod-demo'
+#env vars
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/lib:$PATH"
