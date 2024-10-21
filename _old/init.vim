@@ -8,14 +8,10 @@ filetype off
 call plug#begin('~/.config/nvim/plugged')
 " Git wrapper for vim
 Plug 'tpope/vim-fugitive'
-" to interact with R
-Plug 'jalvesaq/Nvim-R'
 " No-BS Python code folding for Vim
 Plug 'tmhedberg/SimpylFold'
 " for moving between tmux and vim a bit more seamlessly
 Plug 'christoomey/vim-tmux-navigator'
-" to view csv files nicely
-Plug 'chrisbra/csv.vim'
 " to get nice  tab autocompletion
 Plug 'ervandew/supertab'
 " more visable status line
@@ -29,13 +25,10 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
 " Audoindent for python
 Plug 'vim-scripts/indentpython.vim'
-"To add pandoc functionality
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
 " Have vim check syntax on each save
 Plug 'vim-syntastic/syntastic'
 " " Functionality to add Black py reformatting 
-" Plug 'psf/black'
+Plug 'psf/black'
 " Cool colour schemes
 Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
@@ -81,6 +74,8 @@ Plug 'drzel/vim-line-no-indicator'
 Plug 'hashivim/vim-terraform'
 " Add json niceties
 Plug 'elzr/vim-json'
+" Add go development plugin
+Plug 'fatih/vim-go'
 
 
 " Initialize plugin system
