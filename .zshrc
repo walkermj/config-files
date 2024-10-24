@@ -13,7 +13,7 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=powerlevel10k/powerlevel10k
+# ZSH_THEME=powerlevel10k/powerlevel10k
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 # Set list of themes to pick from when loading at random
@@ -149,9 +149,11 @@ alias ga="gcloud auth login"
 #--alias gcloud auth
 alias gap="gcloud auth application-default login"
 
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme 
+alias ohmyzsh="mate ~/.oh-my-zsh"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
 
 # add poetry as $PATH variable
 export PATH="/Users/michael.walker/.local/bin:$PATH"
@@ -163,9 +165,6 @@ export PATH="$HOME/Documents/projects/whirl_mollie:$PATH"
 # add dataflow to PYTHONPATH to enable custom modules
 PYTHONPATH="/Users/michael.walker/Documents/Projects/dataflow-payments-db-ingestion:$PYTHONPATH"
 export PYTHONPATH
-
-# add gitlab  var to authenticate with MCP CLI
-export MOL_GITLAB_TOKEN="$HOME/.ssh/id_rsa"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -179,3 +178,9 @@ export PATH="/usr/local/opt/icu4c/lib:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/michael.walker/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/michael.walker/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/michael.walker/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/michael.walker/google-cloud-sdk/completion.zsh.inc'; fi
